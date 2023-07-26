@@ -29,21 +29,21 @@ func main() {
 }
 
 // Remove 删除某个下标下的元素
-func Remove(list []int, index int) ([]int, error) {
-	if index < 0 || index > len(list)-1 {
+func Remove(slice []int, index int) ([]int, error) {
+	if index < 0 || index > len(slice)-1 {
 		return nil, errors.New("下标错误")
 	}
-	list = append(list[:index], list[index+1:]...)
-	return list, nil
+	slice = append(slice[:index], slice[index+1:]...)
+	return slice, nil
 }
 
 // Remove2 改造为泛型方法
-func Remove2[T any](list []T, index int) ([]T, error) {
-	if index < 0 || index > len(list)-1 {
+func Remove2[T any](slice []T, index int) ([]T, error) {
+	if index < 0 || index > len(slice)-1 {
 		return nil, errors.New("下标错误")
 	}
-	list = append(list[:index], list[index+1:]...)
-	return list, nil
+	slice = append(slice[:index], slice[index+1:]...)
+	return slice, nil
 }
 
 // Add 在切片的指定位置插入新的元素
