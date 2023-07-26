@@ -8,17 +8,22 @@ import (
 func main() {
 	list := []int{1, 2, 3, 4}
 	list2 := []string{"1", "2", "3", "4"}
-	//list, _ = Remove2(list, 0)
 	var err error
-	list, err = Add2(list, 0, 100)
-	list2, err = Add2(list2, 0, "100")
+	list, err = Add2(list, 0, 100)     // [100, 1, 2, 3, 4]
+	list2, err = Add2(list2, 1, "100") //[1, 100, 2, 3, 4]
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(list)
+	fmt.Println(list2)
 
-	list, err = Remove2(list, 0)
-	list2, err = Remove2(list2, 0)
+	list, err = Remove2(list, 1)   //[100, 2, 3, 4]
+	list2, err = Remove2(list2, 4) //[1, 100, 2, 3]
 
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
+
 	fmt.Println(list)
 	fmt.Println(list2)
 }
